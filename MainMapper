@@ -11,21 +11,22 @@ public class MainMapper {
 	public static void main(String[] args) throws JsonMappingException, JsonProcessingException {
 		
 		
-		String webResponse = 
-				"  <WebResponse>"
-				+ "    <RequestId>6541635537</RequestId>"
-				+ "    <Items>"
-				+ "        <Item>"
-				+ "            <Id>1aSd</Id>"
-				+ "            <Name>spider</Name>"
-				+ "        </Item>"
-				+ "        <Item>"
-				+ "            <Id>2sze</Id>"
-				+ "            <Name>catman</Name>"
-				+ "        </Item>"
-				+ "    </Items>"
-				+ "    <Customer>PEN1c3RvbWVyPg0KIDxOYW1lPk5pY288L05hbWU+DQogPEFjY291bnRzPg0KICA8QWNjb3VudD4NCiAgIDxUeXBlPlBSTzwvVHlwZT4NCiAgPC9BY2NvdW50Pg0KICA8QWNjb3VudD4NCiAgIDxUeXBlPlBST01BWDwvVHlwZT4NCiAgPC9BY2NvdW50Pg0KIDwvQWNjb3VudHM+DQo8L0N1c3RvbWVyPg==</Customer>"
-				+ "</WebResponse>";
+		String webResponse = """
+				<WebResponse>
+				    <RequestId>6541635537</RequestId>
+				    <Items>
+				        <Item>
+				            <Id>1aSd</Id>
+				            <Name>spider</Name>
+				        </Item>
+				        <Item>
+				            <Id>2sze</Id>
+				            <Name>catman</Name>
+				        </Item>
+				    </Items>
+				    <Customer>PEN1c3RvbWVyPg0KIDxOYW1lPk5pY288L05hbWU+DQogPEFjY291bnRzPg0KICA8QWNjb3VudD4NCiAgIDxUeXBlPlBSTzwvVHlwZT4NCiAgPC9BY2NvdW50Pg0KICA8QWNjb3VudD4NCiAgIDxUeXBlPlBST01BWDwvVHlwZT4NCiAgPC9BY2NvdW50Pg0KIDwvQWNjb3VudHM+DQo8L0N1c3RvbWVyPg==</Customer>
+				</WebResponse>
+		""";
 		
 		ObjectMapper MAPPER = new XmlMapper().configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		WebResponse result = MAPPER.readerFor(WebResponse.class).readValue(webResponse);
